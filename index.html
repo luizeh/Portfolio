@@ -1,520 +1,665 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-br" class="sem-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfólio - Luís Ricardo</title>
+    <title>LUIZEH — Portfólio de Luís Ricardo</title>
+    <meta
+      name="description"
+      content="Portfólio de Luís Ricardo Soares — desenvolvedor web em formação, aprendiz de T.I. na Gazin."
+    />
     <link rel="shortcut icon" href="imgs/favicon.ico" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <header>
-      <nav>
-        <div class="logo">luizeh.dev</div>
-        <ul>
-          <li><a href="#inicio">Início</a></li>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#gostos">Gostos</a></li>
-          <li><a href="#linguagens">Linguagens</a></li>
-          <li><a href="#projetos">Projetos</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
+    <a href="#sobre" class="pular-conteudo">Pular para o conteúdo</a>
+
+    <!-- ===== CABEÇALHO ===== -->
+    <header class="cabecalho">
+      <div class="cabecalho-barra">
+        <a href="#inicio" class="marca" aria-label="LUIZEH — voltar ao início">
+          LUIZEH
+        </a>
+
+        <nav class="nav" aria-label="Seções do site">
+          <ul class="nav-lista">
+            <li>
+              <a href="#inicio" class="nav-link">
+                <i class="fas fa-house" aria-hidden="true"></i>
+                <span class="nav-dica">Início</span>
+              </a>
+            </li>
+            <li>
+              <a href="#sobre" class="nav-link">
+                <i class="fas fa-user" aria-hidden="true"></i>
+                <span class="nav-dica">Sobre mim</span>
+              </a>
+            </li>
+            <li>
+              <a href="#projetos" class="nav-link">
+                <i class="fas fa-layer-group" aria-hidden="true"></i>
+                <span class="nav-dica">Projetos</span>
+              </a>
+            </li>
+            <li>
+              <a href="#tecnologias" class="nav-link">
+                <i class="fas fa-code" aria-hidden="true"></i>
+                <span class="nav-dica">Tecnologias</span>
+              </a>
+            </li>
+            <li>
+              <a href="#albuns" class="nav-link">
+                <i class="fas fa-compact-disc" aria-hidden="true"></i>
+                <span class="nav-dica">Álbuns favoritos</span>
+              </a>
+            </li>
+            <li>
+              <a href="#contato" class="nav-link">
+                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                <span class="nav-dica">Contato</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <section class="heroi" id="inicio">
-      <div class="conteudo-heroi">
-        <h1 class="digitacao">Olá, sou Luís</h1>
-        <p>
-          Desenvolvedor iniciante, descobrindo novas ferramentas e explorando o
-          mundo da tecnologia.
-        </p>
-        <a href="#projetos" class="botao-acao">Ver Meus Projetos</a>
-      </div>
-    </section>
+    <main>
+      <!-- ===== HERO ===== -->
+      <section class="heroi" id="inicio" aria-labelledby="heroi-nome">
+        <div class="heroi-conteudo">
+          <div class="heroi-texto">
+            <h1 class="heroi-nome" id="heroi-nome">
+              <span class="heroi-ola">Olá, sou o</span>
+              <span class="heroi-nome-grande">Luís Ricardo</span>
+            </h1>
 
-    <section class="sobre" id="sobre">
-      <div class="imagem-sobre">
-        <img src="imgs/eu.png" alt="Luís Ricardo Soares" />
-      </div>
-      <div class="texto-sobre">
-        <h2>Sobre</h2>
-        <h3><span class="destaque">Luis Ricardo Soares</span></h3>
-        <p>
-          Sou um estudante do 1º ano do ensino médio no
-          <span class="destaque">Colégio Cívico Militar</span> de Douradina.
-          Também sou menor aprendiz na empresa
-          <span class="destaque">Gazin.</span>
-        </p>
-        <p>
-          Sou aprendiz na área de <span class="destaque">T.I</span>, com foco em
-          desenvolvimento de habilidades práticas e aprendizado contínuo. Tenho
-          conhecimento em <span class="destaque">HTML</span>,
-          <span class="destaque">CSS</span>,
-          <span class="destaque">Bootstrap</span> e
-          <span class="destaque">Tailwind CSS</span>, além de estar cada vez mais
-          confiante com <span class="destaque">JavaScript</span>. No back-end,
-          venho me desenvolvendo com <span class="destaque">PHP</span> e
-          <span class="destaque">SQL</span>, trabalhando com bancos de dados e
-          lógica de servidor. Busco aplicar esses conhecimentos em projetos
-          reais. Este portfólio reúne alguns dos meus trabalhos que demonstram a
-          minha evolução e comprometimento profissional.
-        </p>
-        <p>
-          Fora do meu ambiente profissional, gosto de ouvir álbuns musicais,
-          jogar videogames, estudar tecnologia, e acompanhar novidades da àrea.
-          Essas atividades contribuem para o desenvolvimento da minha
-          criatividade, foco e interesse contínuo por aprendizado.
-        </p>
-      </div>
-    </section>
+            <!-- no lugar de selos e botões, uma frase em que as palavras levam às seções -->
+            <p class="heroi-frase">
+              Sou aprendiz de T.I. na <a href="#sobre" class="palavra">Gazin</a>,
+              construo <a href="#projetos" class="palavra">projetos</a> com
+              <a href="#tecnologias" class="palavra">HTML, CSS, JavaScript e PHP</a>
+              e, no resto do tempo, ouço <a href="#albuns" class="palavra">álbuns</a>
+              e jogo videogame em Douradina, PR. Se quiser trocar uma ideia, é só me
+              <a href="#contato" class="palavra">chamar</a>.
+            </p>
 
-    <section class="albuns" id="gostos">
-      <h2>Álbuns Favoritos</h2>
-      <p class="subtitulo-secao">Alguns dos meus álbuns favoritos</p>
+            <p class="heroi-meta">
+              <span><i class="fas fa-building" aria-hidden="true"></i> Aprendiz de T.I. na Gazin</span>
+              <span><i class="fas fa-location-dot" aria-hidden="true"></i> Douradina, PR</span>
+            </p>
 
-      <div class="conteiner-albuns">
-        <div class="album">
-          <img
-            src="imgs/lysflath.jpg"
-            alt="Lift Your Skinny Fists Like Antennas to Heaven"
-          />
-          <div class="info-album">
-            <h4>Lift Your Skinny Fists Like Antennas to Heaven</h4>
-            <p class="artista">Godspeed You! Black Emperor</p>
+            <ul class="heroi-sociais" aria-label="Redes sociais">
+              <li>
+                <a href="https://github.com/luizeh" target="_blank" rel="noopener noreferrer" class="icone-link">
+                  <i class="fab fa-github" aria-hidden="true"></i><span class="nav-dica">GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://instagram.com/luizehofwgkta" target="_blank" rel="noopener noreferrer" class="icone-link">
+                  <i class="fab fa-instagram" aria-hidden="true"></i><span class="nav-dica">Instagram</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=luisricardosoares34@gmail.com" target="_blank" rel="noopener noreferrer" class="icone-link">
+                  <i class="fas fa-envelope" aria-hidden="true"></i><span class="nav-dica">E-mail</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- foto provisória: avatar do GitHub (github.com/luizeh) -->
+          <div class="heroi-foto">
+            <span class="foto-halo" aria-hidden="true"></span>
+            <span class="foto-aro" aria-hidden="true"></span>
+            <div class="foto-moldura">
+              <img
+                src="https://github.com/luizeh.png?size=460"
+                alt="Foto de perfil de Luís Ricardo Soares"
+                width="460"
+                height="460"
+                fetchpriority="high"
+              />
+              <span class="foto-reflexo" aria-hidden="true"></span>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div class="album">
-          <img
-            src="imgs/thirty.jpg"
-            alt="THIRTY三十"
-          />
-          <div class="info-album">
-            <h4>THIRTY三十</h4>
-            <p class="artista">Oliver Buckland</p>
-          </div>
-        </div>
+      <!-- ===== SOBRE ===== -->
+      <section class="secao sobre" id="sobre" aria-labelledby="sobre-titulo">
+        <div class="container">
+          <h2 class="titulo-secao revelar" id="sobre-titulo">SOBRE MIM</h2>
 
-        <div class="album">
-          <img src="imgs/hawaii.jpg" alt="Hawaii Part II" />
-          <div class="info-album">
-            <h4>Hawaii Part: II</h4>
-            <p class="artista">Miracle Musical</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="linguagens" id="linguagens">
-      <h2>Linguagens & Tecnologias</h2>
-      <p class="subtitulo-secao">Minha jornada de aprendizado</p>
-
-      <div class="categoria-habilidade">
-        <h3>Aprendendo Atualmente</h3>
-
-        <div class="grade-linguagens">
-          <a
-            href="https://developer.mozilla.org/pt-BR/docs/Web/HTML"
-            class="cartao-linguagem"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="icone-linguagem">
-              <img
-                src="https://cdn.simpleicons.org/html5/e34f26"
-                alt="HTML5"
-                class="lang-card-icon"
-              />
-            </div>
-            <h4>HTML5</h4>
-            <div class="conteiner-progresso">
-              <span class="valor-progresso">95%</span>
-              <div class="barra-progresso">
-                <div class="progresso" style="width: 95%"></div>
-              </div>
-            </div>
-            <p class="texto-progresso">Avançado</p>
-          </a>
-
-          <a
-            href="https://developer.mozilla.org/pt-BR/docs/Web/CSS"
-            class="cartao-linguagem"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="icone-linguagem">
-              <i class="fab fa-css3-alt" style="color: #1572b6"></i>
-            </div>
-            <h4>CSS3</h4>
-            <div class="conteiner-progresso">
-              <span class="valor-progresso">85%</span>
-              <div class="barra-progresso">
-                <div class="progresso" style="width: 85%"></div>
-              </div>
-            </div>
-            <p class="texto-progresso">Avançado</p>
-          </a>
-
-          <a
-            href="https://getbootstrap.com/docs/"
-            class="cartao-linguagem"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="icone-linguagem">
-              <img
-                src="https://cdn.simpleicons.org/bootstrap/7952b3"
-                alt="Bootstrap"
-                class="lang-card-icon"
-              />
-            </div>
-            <h4>Bootstrap</h4>
-            <div class="conteiner-progresso">
-              <span class="valor-progresso">80%</span>
-              <div class="barra-progresso">
-                <div class="progresso" style="width: 80%"></div>
-              </div>
-            </div>
-            <p class="texto-progresso">Avançado</p>
-          </a>
-
-          <a
-            href="https://tailwindcss.com/docs"
-            class="cartao-linguagem"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="icone-linguagem">
-              <img
-                src="https://cdn.simpleicons.org/tailwindcss/38bdf8"
-                alt="Tailwind CSS"
-                class="lang-card-icon"
-              />
-            </div>
-            <h4>Tailwind CSS</h4>
-            <div class="conteiner-progresso">
-              <span class="valor-progresso">65%</span>
-              <div class="barra-progresso">
-                <div class="progresso" style="width: 65%"></div>
-              </div>
-            </div>
-            <p class="texto-progresso">Intermediário</p>
-          </a>
-
-          <a
-            href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript"
-            class="cartao-linguagem"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="icone-linguagem">
-              <img
-                src="https://cdn.simpleicons.org/javascript/f7df1e"
-                alt="JavaScript"
-                class="lang-card-icon"
-              />
-            </div>
-            <h4>JavaScript</h4>
-            <div class="conteiner-progresso">
-              <span class="valor-progresso">75%</span>
-              <div class="barra-progresso">
-                <div class="progresso" style="width: 75%"></div>
-              </div>
-            </div>
-            <p class="texto-progresso">Intermediário</p>
-          </a>
-
-          <a
-            href="https://www.php.net/docs.php"
-            class="cartao-linguagem"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="icone-linguagem">
-              <img
-                src="https://cdn.simpleicons.org/php/777bb4"
-                alt="PHP"
-                class="lang-card-icon"
-              />
-            </div>
-            <h4>PHP</h4>
-            <div class="conteiner-progresso">
-              <span class="valor-progresso">90%</span>
-              <div class="barra-progresso">
-                <div class="progresso" style="width: 90%"></div>
-              </div>
-            </div>
-            <p class="texto-progresso">Avançado</p>
-          </a>
-
-          <a
-            href="https://www.w3schools.com/sql/"
-            class="cartao-linguagem cartao-largo"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="icone-linguagem">
-              <img
-                src="https://cdn.simpleicons.org/mysql/4479a1"
-                alt="SQL"
-                class="lang-card-icon"
-              />
-            </div>
-            <h4>SQL</h4>
-            <div class="conteiner-progresso">
-              <span class="valor-progresso">90%</span>
-              <div class="barra-progresso">
-                <div class="progresso" style="width: 90%"></div>
-              </div>
-            </div>
-            <p class="texto-progresso">Avançado</p>
-          </a>
-        </div>
-      </div>
-
-      <div class="categoria-habilidade">
-        <h3>Quero Aprender</h3>
-        <div class="grade-linguagens">
-          <a
-            href="https://react.dev/"
-            class="cartao-linguagem cartao-bloqueado"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Em breve"
-          >
-            <i class="fas fa-lock icone-lock"></i>
-            <div class="icone-linguagem cartao-react">
-              <img
-                src="https://cdn.simpleicons.org/react/61dafb"
-                alt="React"
-                class="lang-card-icon"
-              />
-            </div>
-            <h4>React</h4>
-          </a>
-          <a
-            href="https://docs.docker.com/"
-            class="cartao-linguagem cartao-bloqueado"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Em breve"
-          >
-            <i class="fas fa-lock icone-lock"></i>
-            <div class="icone-linguagem">
-              <img
-                src="https://cdn.simpleicons.org/docker/2496ed"
-                alt="Docker"
-                class="lang-card-icon"
-              />
-            </div>
-            <h4>Docker</h4>
-          </a>
-          <a
-            href="https://laravel.com/docs"
-            class="cartao-linguagem cartao-bloqueado"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Em breve"
-          >
-            <i class="fas fa-lock icone-lock"></i>
-            <div class="icone-linguagem">
-              <img
-                src="https://cdn.simpleicons.org/laravel/ff2d20"
-                alt="Laravel"
-                class="lang-card-icon"
-              />
-            </div>
-            <h4>Laravel</h4>
-          </a>
-          <a
-            href="https://www.linux.org/"
-            class="cartao-linguagem cartao-bloqueado"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Em breve"
-          >
-            <i class="fas fa-lock icone-lock"></i>
-            <div class="icone-linguagem">
-              <img
-                src="https://cdn.simpleicons.org/linux/fcc624"
-                alt="Linux"
-                class="lang-card-icon"
-              />
-            </div>
-            <h4>Linux</h4>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="projetos">
-      <h2>Meus Projetos</h2>
-      <p class="subtitulo-secao">Projetos que fiz ao longo da a minha carreira
-      </p>
-
-      <div class="grade-projetos">
-        <div class="cartao-projeto">
-          <div class="imagem-projeto">
-            <img src="imgs/brasil-time.png" alt="Projeto 1" />
-          </div>
-          <div class="conteudo-projeto">
-            <div>
-              <h3>Brasil Time</h3>
-              <p>
-                Primeiro projeto colaborativo que participei, junto com
-                <a
-                  class="linkprojeto"
-                  href="https://github.com/er1ck-xyz"
-                  target="_blank"
-                  rel="noopener"
-                  >Erick</a
-                >,
-                <a
-                  class="linkprojeto"
-                  href="https://github.com/destypc"
-                  target="_blank"
-                  rel="noopener"
-                  >Enzinx</a
-                >
-                e
-                <a
-                  class="linkprojeto"
-                  href="https://github.com/lumivivos"
-                  target="_blank"
-                  rel="noopener"
-                  >Lucas (lumi)</a
-                >. O projeto consiste em mostrar o horário baseado no horário do
-                seu pc, e também inclui outras funcionalidades, como um
-                cronômetro, um temporizador e uma sessão mostrando os feriados
-                do ano.
+          <div class="sobre-grade">
+            <div class="sobre-principal revelar">
+              <p class="sobre-lead">
+                Sou <strong>Luís Ricardo Soares</strong>, estudante do 1º ano do
+                ensino médio no <strong>Colégio Cívico Militar</strong> de
+                Douradina e menor aprendiz de <strong>T.I.</strong> na
+                <strong>Gazin</strong>.
               </p>
-              <div class="etiquetas-projeto">
-                <span class="etiqueta">HTML</span>
-                <span class="etiqueta">CSS</span>
-                <span class="etiqueta">JavaScript</span>
-              </div>
-            </div>
-            <a
-              href="https://destypc.github.io/Brasil-Time/"
-              target="_blank"
-              class="botao-projeto"
-            >
-              <span>Acessar</span>
-              <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="cartao-projeto">
-          <div class="imagem-projeto">
-            <img src="imgs/barbeariawebsite.png" alt="Projeto 2" />
-          </div>
-          <div class="conteudo-projeto">
-            <div>
-              <h3>Tio Preto Barbearia</h3>
               <p>
-                💈 Sistema web full-stack para gestão de barbearia real:
-                agendamentos, loja de produtos e painel administrativo.
+                Como aprendiz, meu foco é desenvolver habilidades práticas e
+                aprender continuamente. Tenho conhecimento em
+                <strong>HTML</strong>, <strong>CSS</strong>,
+                <strong>Bootstrap</strong> e <strong>Tailwind CSS</strong>, além
+                de estar cada vez mais confiante com <strong>JavaScript</strong>.
+                No back-end, venho me desenvolvendo com <strong>PHP</strong> e
+                <strong>SQL</strong>, trabalhando com bancos de dados e lógica de
+                servidor.
               </p>
-              <div class="etiquetas-projeto">
-                <span class="etiqueta">HTML</span>
-                <span class="etiqueta">CSS</span>
-                <span class="etiqueta">PHP</span>
-                <span class="etiqueta">JavaScript</span>
-                <span class="etiqueta">MySQL</span>
-              </div>
+
+
+              <p>
+                Fora do ambiente profissional, gosto de ouvir álbuns, jogar
+                videogames, estudar tecnologia e acompanhar as novidades da área —
+                atividades que alimentam minha criatividade, meu foco e meu
+                interesse por aprender.
+              </p>
+
+              <!-- foto: "Tyler The Creator Toronto 2025 (cropped)" por Lygonstreet,
+                   Wikimedia Commons, CC BY-SA 4.0 (recortada) -->
+              <figure class="citacao">
+                <span class="citacao-aspas" aria-hidden="true">“</span>
+                <blockquote class="citacao-texto">
+                  <button
+                    type="button"
+                    class="citacao-frase"
+                    lang="en"
+                    aria-describedby="citacao-traducao"
+                    aria-expanded="false"
+                  >
+                    Create like a <em>child</em>, edit like a
+                    <em>scientist</em>.
+                  </button>
+                  <span class="citacao-traducao" id="citacao-traducao" lang="pt-BR">
+                    Crie como uma <em>criança</em>, edite como um
+                    <em>cientista</em>.
+                  </span>
+                </blockquote>
+                <figcaption>
+                  <img
+                    src="imgs/tyler.jpg"
+                    alt="Tyler, the Creator"
+                    title="Foto: Lygonstreet / Wikimedia Commons, CC BY-SA 4.0"
+                    width="160"
+                    height="160"
+                    loading="lazy"
+                  />
+                  <span class="citacao-autor">Tyler, the Creator</span>
+                  <span class="citacao-idioma" aria-hidden="true">
+                    <span class="idioma-en">EN</span><span class="idioma-pt">PT</span>
+                  </span>
+                </figcaption>
+              </figure>
             </div>
-            <a
-              href="https://github.com/luizeh/TioPretoBarbearia-Website"
-              target="_blank"
-              class="botao-projeto"
-            >
-              <span>Acessar</span>
-              <i class="fas fa-arrow-right"></i>
-            </a>
+
+            <aside class="sobre-topicos revelar" aria-label="Tópicos">
+              <article class="topico">
+                <span class="topico-icone"><i class="fas fa-briefcase" aria-hidden="true"></i></span>
+                <div>
+                  <h3 class="topico-rotulo">Agora</h3>
+                  <p>Aprendiz de T.I. na Gazin, enquanto curso o 1º ano no Colégio Cívico Militar.</p>
+                </div>
+              </article>
+              <article class="topico">
+                <span class="topico-icone"><i class="fas fa-book-open" aria-hidden="true"></i></span>
+                <div>
+                  <h3 class="topico-rotulo">Aprendizado</h3>
+                  <p>Estudando JavaScript, PHP e SQL.</p>
+                </div>
+              </article>
+              <article class="topico">
+                <span class="topico-icone"><i class="fas fa-flag" aria-hidden="true"></i></span>
+                <div>
+                  <h3 class="topico-rotulo">Metas</h3>
+                  <p>
+                    Próximo passo: <strong>React</strong> — componentes, hooks e
+                    roteamento. Depois, Docker, Laravel e Linux.
+                  </p>
+                </div>
+              </article>
+              <article class="topico">
+                <span class="topico-icone"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i></span>
+                <div>
+                  <h3 class="topico-rotulo">Criatividade</h3>
+                  <p>Criação de interfaces, experimentação visual e exploração criativa.</p>
+                </div>
+              </article>
+              <article class="topico">
+                <span class="topico-icone"><i class="fas fa-headphones" aria-hidden="true"></i></span>
+                <div>
+                  <h3 class="topico-rotulo">Interesses</h3>
+                  <ul class="chips">
+                    <li><i class="fas fa-compact-disc" aria-hidden="true"></i> Álbuns</li>
+                    <li><i class="fas fa-gamepad" aria-hidden="true"></i> Videogames</li>
+                    <li><i class="fas fa-microchip" aria-hidden="true"></i> Tecnologia</li>
+                  </ul>
+                </div>
+              </article>
+              <article class="topico">
+                <span class="topico-icone"><i class="fas fa-bullseye" aria-hidden="true"></i></span>
+                <div>
+                  <h3 class="topico-rotulo">Visão</h3>
+                  <p>Aplicar esses conhecimentos em projetos reais.</p>
+                </div>
+              </article>
+            </aside>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="contato" id="contato">
-      <div class="conteudo-contato">
-        <h2>Entre em Contato</h2>
-        <p class="subtitulo-secao">
-          Gostaria de entrar em contato? Aqui estão algumas maneiras de falar
-          comigo!
+      <!-- ===== PROJETOS ===== -->
+      <section class="secao projetos" id="projetos" aria-labelledby="projetos-titulo">
+        <div class="container">
+          <div class="cabecalho-secao revelar">
+            <h2 class="titulo-secao" id="projetos-titulo">PROJETOS</h2>
+            <a
+              href="https://github.com/luizeh"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link-seta"
+              >Ver todos no GitHub <i class="fas fa-arrow-right" aria-hidden="true"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="container container-largo">
+
+          <div
+            class="vitrine revelar"
+            role="region"
+            aria-roledescription="carrossel"
+            aria-label="Projetos"
+            tabindex="0"
+          >
+            <button type="button" class="botao-redondo vitrine-anterior" data-direcao="-1" aria-label="Projeto anterior">
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>
+            </button>
+
+            <div class="vitrine-palco">
+              <article class="projeto ativo" aria-roledescription="slide" aria-label="Brasil Time">
+                <div class="projeto-midia">
+                  <div class="navegador">
+                    <span class="navegador-pontos"><span></span><span></span><span></span></span>
+                    <span class="navegador-url">destypc.github.io/Brasil-Time</span>
+                  </div>
+                  <img
+                    src="imgs/brasil-time.png"
+                    alt="Captura de tela do site Brasil Time"
+                    width="1669"
+                    height="1070"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="projeto-info">
+                  <div class="projeto-titulo">
+                    <h3>Brasil Time</h3>
+                    <p class="projeto-tipo">Projeto colaborativo</p>
+                  </div>
+                  <p class="projeto-descricao">
+                    Primeiro projeto colaborativo de que participei, junto com
+                    <a class="linkprojeto" href="https://github.com/er1ck-xyz" target="_blank" rel="noopener noreferrer">Erick</a>,
+                    <a class="linkprojeto" href="https://github.com/destypc" target="_blank" rel="noopener noreferrer">Enzinx</a>
+                    e
+                    <a class="linkprojeto" href="https://github.com/lumivivos" target="_blank" rel="noopener noreferrer">Lucas (lumi)</a>.
+                    Mostra o horário com base no relógio do seu PC e inclui
+                    cronômetro, temporizador e uma sessão com os feriados do ano.
+                  </p>
+                  <div class="projeto-lado">
+                    <ul class="tags" aria-label="Tecnologias usadas">
+                      <li>HTML</li>
+                      <li>CSS</li>
+                      <li>JavaScript</li>
+                    </ul>
+                    <a
+                      href="https://destypc.github.io/Brasil-Time/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="botao botao-primario"
+                      >Acessar site <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i
+                    ></a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="projeto" aria-roledescription="slide" aria-label="Tio Preto Barbearia">
+                <div class="projeto-midia">
+                  <div class="navegador">
+                    <span class="navegador-pontos"><span></span><span></span><span></span></span>
+                    <span class="navegador-url">github.com/luizeh/TioPretoBarbearia-Website</span>
+                  </div>
+                  <img
+                    src="imgs/barbeariawebsite.png"
+                    alt="Captura de tela do site Tio Preto Barbearia"
+                    width="1920"
+                    height="914"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="projeto-info">
+                  <div class="projeto-titulo">
+                    <h3>Tio Preto Barbearia</h3>
+                    <p class="projeto-tipo">Full-stack</p>
+                  </div>
+                  <p class="projeto-descricao">
+                    Sistema web full-stack para a gestão de uma barbearia real:
+                    agendamentos, loja de produtos e painel administrativo.
+                  </p>
+                  <div class="projeto-lado">
+                    <ul class="tags" aria-label="Tecnologias usadas">
+                      <li>HTML</li>
+                      <li>CSS</li>
+                      <li>PHP</li>
+                      <li>JavaScript</li>
+                      <li>MySQL</li>
+                    </ul>
+                    <a
+                      href="https://github.com/luizeh/TioPretoBarbearia-Website"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="botao botao-contorno"
+                      ><i class="fab fa-github" aria-hidden="true"></i> Código no GitHub</a
+                    >
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <button type="button" class="botao-redondo vitrine-proximo" data-direcao="1" aria-label="Próximo projeto">
+              <i class="fas fa-chevron-right" aria-hidden="true"></i>
+            </button>
+
+            <div class="vitrine-pontos" aria-hidden="true"></div>
+            <p class="visualmente-oculto" aria-live="polite" id="vitrine-status"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== TECNOLOGIAS ===== -->
+      <section class="secao tecnologias" id="tecnologias" aria-labelledby="tecnologias-titulo">
+        <div class="container">
+          <h2 class="titulo-secao revelar" id="tecnologias-titulo">TECNOLOGIAS</h2>
+
+          <div class="tec-filtros revelar" role="toolbar" aria-label="Filtrar tecnologias por categoria">
+            <button type="button" class="tec-filtro" data-filtro="todas" aria-pressed="true">Todas</button>
+            <button type="button" class="tec-filtro" data-filtro="linguagens" aria-pressed="false">Linguagens</button>
+            <button type="button" class="tec-filtro" data-filtro="frameworks" aria-pressed="false">Frameworks / Bibliotecas</button>
+            <button type="button" class="tec-filtro" data-filtro="ferramentas" aria-pressed="false">Ferramentas</button>
+          </div>
+
+          <div class="tec-grupos revelar">
+            <section class="tec-grupo" data-grupo="linguagens" aria-labelledby="grupo-linguagens">
+              <h3 class="tec-grupo-titulo" id="grupo-linguagens">// Linguagens</h3>
+              <ul class="tec-lista">
+                <li>
+                  <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" class="tec" target="_blank" rel="noopener noreferrer">
+                    <span class="tec-icone"><img src="https://cdn.simpleicons.org/html5/e34f26" alt="" width="32" height="32" loading="lazy" /></span>
+                    <span class="tec-nome">HTML5<small>Estrutura</small></span>
+                    <i class="fas fa-arrow-up-right-from-square tec-seta" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" class="tec" target="_blank" rel="noopener noreferrer">
+                    <span class="tec-icone"><i class="fab fa-css3-alt" style="color: #1572b6" aria-hidden="true"></i></span>
+                    <span class="tec-nome">CSS3<small>Estilização</small></span>
+                    <i class="fas fa-arrow-up-right-from-square tec-seta" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" class="tec" target="_blank" rel="noopener noreferrer">
+                    <span class="tec-icone"><img src="https://cdn.simpleicons.org/javascript/f7df1e" alt="" width="32" height="32" loading="lazy" /></span>
+                    <span class="tec-nome">JavaScript<small>Interatividade</small></span>
+                    <i class="fas fa-arrow-up-right-from-square tec-seta" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.php.net/docs.php" class="tec" target="_blank" rel="noopener noreferrer">
+                    <span class="tec-icone"><img src="https://cdn.simpleicons.org/php/777bb4" alt="" width="32" height="32" loading="lazy" /></span>
+                    <span class="tec-nome">PHP<small>Lógica de servidor</small></span>
+                    <i class="fas fa-arrow-up-right-from-square tec-seta" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://dev.mysql.com/doc/" class="tec" target="_blank" rel="noopener noreferrer">
+                    <span class="tec-icone"><img src="https://cdn.simpleicons.org/mysql/4479a1" alt="" width="32" height="32" loading="lazy" /></span>
+                    <span class="tec-nome">MySQL<small>SQL e bancos de dados</small></span>
+                    <i class="fas fa-arrow-up-right-from-square tec-seta" aria-hidden="true"></i>
+                  </a>
+                </li>
+              </ul>
+            </section>
+
+            <section class="tec-grupo" data-grupo="frameworks" aria-labelledby="grupo-frameworks">
+              <h3 class="tec-grupo-titulo" id="grupo-frameworks">// Frameworks / Bibliotecas</h3>
+              <ul class="tec-lista">
+                <li>
+                  <a href="https://react.dev/" class="tec" target="_blank" rel="noopener noreferrer">
+                    <span class="tec-icone"><img src="https://cdn.simpleicons.org/react/61dafb" alt="" width="32" height="32" loading="lazy" /></span>
+                    <span class="tec-nome">React<small>Interfaces</small></span>
+                    <i class="fas fa-arrow-up-right-from-square tec-seta" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://nodejs.org/docs/latest/api/" class="tec" target="_blank" rel="noopener noreferrer">
+                    <span class="tec-icone"><img src="https://cdn.simpleicons.org/nodedotjs/5fa04e" alt="" width="32" height="32" loading="lazy" /></span>
+                    <span class="tec-nome">Node.js<small>JavaScript no servidor</small></span>
+                    <i class="fas fa-arrow-up-right-from-square tec-seta" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://laravel.com/docs" class="tec" target="_blank" rel="noopener noreferrer">
+                    <span class="tec-icone"><img src="https://cdn.simpleicons.org/laravel/ff2d20" alt="" width="32" height="32" loading="lazy" /></span>
+                    <span class="tec-nome">Laravel<small>Framework PHP</small></span>
+                    <i class="fas fa-arrow-up-right-from-square tec-seta" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://getbootstrap.com/docs/" class="tec" target="_blank" rel="noopener noreferrer">
+                    <span class="tec-icone"><img src="https://cdn.simpleicons.org/bootstrap/7952b3" alt="" width="32" height="32" loading="lazy" /></span>
+                    <span class="tec-nome">Bootstrap<small>Framework CSS</small></span>
+                    <i class="fas fa-arrow-up-right-from-square tec-seta" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tailwindcss.com/docs" class="tec" target="_blank" rel="noopener noreferrer">
+                    <span class="tec-icone"><img src="https://cdn.simpleicons.org/tailwindcss/38bdf8" alt="" width="32" height="32" loading="lazy" /></span>
+                    <span class="tec-nome">Tailwind CSS<small>Framework CSS</small></span>
+                    <i class="fas fa-arrow-up-right-from-square tec-seta" aria-hidden="true"></i>
+                  </a>
+                </li>
+              </ul>
+            </section>
+
+            <section class="tec-grupo" data-grupo="ferramentas" aria-labelledby="grupo-ferramentas">
+              <h3 class="tec-grupo-titulo" id="grupo-ferramentas">// Ferramentas</h3>
+              <ul class="tec-lista">
+                <li>
+                  <a href="https://git-scm.com/doc" class="tec" target="_blank" rel="noopener noreferrer">
+                    <span class="tec-icone"><img src="https://cdn.simpleicons.org/git/f05032" alt="" width="32" height="32" loading="lazy" /></span>
+                    <span class="tec-nome">Git<small>Controle de versão</small></span>
+                    <i class="fas fa-arrow-up-right-from-square tec-seta" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/luizeh" class="tec" target="_blank" rel="noopener noreferrer">
+                    <span class="tec-icone"><i class="fab fa-github" style="color: var(--texto)" aria-hidden="true"></i></span>
+                    <span class="tec-nome">GitHub<small>Repositórios</small></span>
+                    <i class="fas fa-arrow-up-right-from-square tec-seta" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://getcomposer.org/doc/" class="tec" target="_blank" rel="noopener noreferrer">
+                    <span class="tec-icone"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/composer/composer-original.svg" alt="" width="32" height="32" loading="lazy" /></span>
+                    <span class="tec-nome">Composer<small>Dependências PHP</small></span>
+                    <i class="fas fa-arrow-up-right-from-square tec-seta" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://docs.docker.com/" class="tec" target="_blank" rel="noopener noreferrer">
+                    <span class="tec-icone"><img src="https://cdn.simpleicons.org/docker/2496ed" alt="" width="32" height="32" loading="lazy" /></span>
+                    <span class="tec-nome">Docker<small>Contêineres</small></span>
+                    <i class="fas fa-arrow-up-right-from-square tec-seta" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://code.visualstudio.com/docs" class="tec" target="_blank" rel="noopener noreferrer">
+                    <span class="tec-icone"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/vscode/vscode-original.svg" alt="" width="32" height="32" loading="lazy" /></span>
+                    <span class="tec-nome">VS Code<small>Editor de código</small></span>
+                    <i class="fas fa-arrow-up-right-from-square tec-seta" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.gimp.org/docs/" class="tec" target="_blank" rel="noopener noreferrer">
+                    <span class="tec-icone"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/gimp/gimp-original.svg" alt="" width="32" height="32" loading="lazy" /></span>
+                    <span class="tec-nome">GIMP<small>Edição de imagens</small></span>
+                    <i class="fas fa-arrow-up-right-from-square tec-seta" aria-hidden="true"></i>
+                  </a>
+                </li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== ÁLBUNS ===== -->
+      <section class="secao biblioteca" id="albuns" aria-labelledby="albuns-titulo">
+        <div class="container container-largo">
+          <h2 class="titulo-secao revelar" id="albuns-titulo">ALBUNS FAVORITOS (PERFECT SCORES)</h2>
+
+          <div class="biblioteca-grade revelar">
+            <article class="album-destaque" style="--capa: url('imgs/hawaii.jpg')">
+              <span class="album-destaque-fundo" aria-hidden="true"></span>
+              <img
+                class="album-destaque-capa"
+                src="imgs/hawaii.jpg"
+                alt="Capa do álbum Hawaii: Part II, de Miracle Musical"
+                width="643"
+                height="604"
+                loading="lazy"
+              />
+              <div class="album-destaque-info">
+                <p class="album-destaque-rotulo">Álbum em destaque</p>
+                <h3>Hawaii: Part II</h3>
+                <p class="album-artista">Miracle Musical</p>
+                <p class="nota-pilula"><i class="fas fa-star" aria-hidden="true"></i> 100/100</p>
+              </div>
+            </article>
+
+            <!-- 25 posições + o destaque = 26 perfect scores, 12 por página.
+                 Para cadastrar um álbum, troque um <li class="album album-vazio"> pelo modelo dos preenchidos. -->
+            <div class="estante" role="region" aria-roledescription="carrossel" aria-label="Biblioteca de perfect scores" tabindex="0">
+            <ol class="albuns-grade">
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/thirty.jpg" alt="Capa do álbum THIRTY三十, de Oliver Buckland" width="640" height="640" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="THIRTY三十">THIRTY三十</h3>
+                <p class="album-artista">Oliver Buckland</p>
+              </li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/lysflath.jpg" alt="Capa do álbum Lift Your Skinny Fists Like Antennas to Heaven, de Godspeed You! Black Emperor" width="750" height="450" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="Lift Your Skinny Fists Like Antennas to Heaven">Lift Your Skinny Fists Like Antennas to Heaven</h3>
+                <p class="album-artista">Godspeed You! Black Emperor</p>
+              </li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+            </ol>
+
+            <div class="estante-controles">
+              <button type="button" class="botao-redondo" data-pagina="-1" aria-label="Álbuns anteriores">
+                <i class="fas fa-chevron-left" aria-hidden="true"></i>
+              </button>
+              <div class="estante-pontos" aria-hidden="true"></div>
+              <button type="button" class="botao-redondo" data-pagina="1" aria-label="Próximos álbuns">
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+            <p class="visualmente-oculto" aria-live="polite" id="estante-status"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== RODAPÉ / CONTATO ===== -->
+    <footer class="rodape" id="contato">
+      <div class="container rodape-linha">
+        <p class="rodape-assinatura">
+          <span class="rodape-nome"><span id="ano">2026</span> Luis Ricardo Soares</span>
+          <span class="rodape-marca">LUIZEH</span>
         </p>
 
-        <div class="info-contato">
-          <p>
-            <i
-              class="fas fa-envelope"
-              style="color: var(--cor-destaque); margin-right: 0.8rem"
-            ></i
-            >Email:
-            <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=luisricardosoares34@gmail.com"
-              >luisricardosoares@gmail.com</a
-            >
-          </p>
-          <p>
-            <i
-              class="fas fa-phone"
-              style="color: var(--cor-destaque); margin-right: 0.8rem"
-            ></i
-            >Telefone: <a href="tel:+55-11-9999-9999">+55 (44) 9848-3756</a>
-          </p>
-          <p>
-            <i
-              class="fas fa-map-marker-alt"
-              style="color: var(--cor-destaque); margin-right: 0.8rem"
-            ></i
-            >Douradina, Paraná
-          </p>
-        </div>
-
-        <div class="links-sociais">
-          <a
-            href="https://discord.com/users/699060293933727745"
-            class="link-social"
-            title="Discord"
-            target="_blank"
-            ><i class="fab fa-discord"></i
-          ></a>
-          <a
-            href="https://github.com/luizeh"
-            class="link-social"
-            title="GitHub"
-            target="_blank"
-            ><i class="fab fa-github"></i
-          ></a>
-          <a
-            href="https://instagram.com/luizehofwgkta"
-            class="link-social"
-            title="Instagram"
-            target="_blank"
-            ><i class="fab fa-instagram"></i
-          ></a>
-          <a
-            href="https://wa.me/554498483756"
-            target="_blank"
-            class="link-social"
-            ><i class="fa-brands fa-whatsapp"></i
-          ></a>
-        </div>
+        <ul class="rodape-contatos" aria-label="Contatos">
+          <li>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=luisricardosoares34@gmail.com" target="_blank" rel="noopener noreferrer" class="icone-link">
+              <i class="fas fa-envelope" aria-hidden="true"></i><span class="nav-dica">E-mail</span>
+            </a>
+          </li>
+          <li>
+            <a href="tel:+554498483756" class="icone-link">
+              <i class="fas fa-phone" aria-hidden="true"></i><span class="nav-dica">Telefone</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.me/554498483756" target="_blank" rel="noopener noreferrer" class="icone-link">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i><span class="nav-dica">WhatsApp</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/luizeh" target="_blank" rel="noopener noreferrer" class="icone-link">
+              <i class="fab fa-github" aria-hidden="true"></i><span class="nav-dica">GitHub</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://discord.com/users/699060293933727745" target="_blank" rel="noopener noreferrer" class="icone-link">
+              <i class="fab fa-discord" aria-hidden="true"></i><span class="nav-dica">Discord</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com/luizehofwgkta" target="_blank" rel="noopener noreferrer" class="icone-link">
+              <i class="fab fa-instagram" aria-hidden="true"></i><span class="nav-dica">Instagram</span>
+            </a>
+          </li>
+        </ul>
       </div>
-    </section>
-    <footer>
-      <p>&copy; 2026 Luizeh</p>
     </footer>
   </body>
 </html>
