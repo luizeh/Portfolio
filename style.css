@@ -29,10 +29,27 @@
   --altura-cabecalho: 68px;
   --curva: cubic-bezier(0.22, 1, 0.36, 1);
   --transicao: 0.35s var(--curva);
+
+  /* 0 no topo do hero, 1 quando ele já saiu da tela (atualizado pelo script) */
+  --rolagem: 0;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* rolagem suave (Lenis) */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 body {
@@ -89,6 +106,16 @@ img {
 
 .pular-conteudo:focus-visible {
   top: 1rem;
+}
+
+/* tela transparente por cima de tudo onde as estrelinhas do cursor são desenhadas */
+.rastro-cursor {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 /* =====GERAL===== */
@@ -339,22 +366,33 @@ img {
 }
 
 /* =====CABEÇALHO===== */
+/* no hero o header é uma barra compacta flutuando; rolando para a próxima
+   seção ela se abre até virar a barra inteira. --rolagem vai de 0 a 1 (script) */
 .cabecalho {
+  --fechado: calc(1 - var(--rolagem));
+  --pilula: min(560px, 100% - 2rem);
+  --altura-barra: calc(var(--altura-cabecalho) - 12px * var(--fechado));
   position: fixed;
-  inset: 0 0 auto 0;
-  height: var(--altura-cabecalho);
+  top: calc(14px * var(--fechado));
+  left: 50%;
   z-index: 10;
-  background: rgb(var(--bg-rgb) / 0.82);
+  width: calc(var(--pilula) + (100% - var(--pilula)) * var(--rolagem));
+  height: var(--altura-barra);
+  translate: -50% 0;
+  background: rgb(var(--bg-rgb) / calc(0.6 + 0.22 * var(--rolagem)));
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--linha-forte);
+  /* a borda de cima e das laterais some conforme a pílula vira barra */
+  border: 1px solid color-mix(in srgb, var(--linha-forte) calc(var(--fechado) * 100%), transparent);
+  border-bottom-color: var(--linha-forte);
+  box-shadow: 0 14px 40px rgb(0 0 0 / calc(0.45 * var(--fechado)));
 }
 
 .cabecalho-barra {
   max-width: var(--largura);
   height: 100%;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 calc(1.1rem + 0.9rem * var(--rolagem));
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -425,7 +463,7 @@ img {
   content: "";
   position: absolute;
   left: 50%;
-  bottom: calc((var(--altura-cabecalho) - 40px) / -2 - 1px);
+  bottom: calc((var(--altura-barra) - 40px) / -2 - 1px);
   width: 18px;
   height: 1px;
   background: var(--acento);
@@ -447,16 +485,21 @@ img {
   overflow-x: clip;
 }
 
-/* texto à esquerda, foto grande à direita */
+/* foto grande à esquerda, texto à direita */
 .heroi-conteudo {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
   gap: clamp(3rem, 7vw, 6.5rem);
   width: 100%;
-  max-width: var(--largura);
+  max-width: var(--largura-larga);
   padding: 0 2rem;
   animation: subir 1s var(--curva) both;
+}
+
+/* a coluna de texto vira referência de tamanho para o nome (unidade cqi) */
+.heroi-texto {
+  container-type: inline-size;
 }
 
 @keyframes subir {
@@ -470,17 +513,12 @@ img {
   }
 }
 
-/* foto viva: flutua devagar, um aro de luz gira em volta e, com o mouse,
-   ela inclina em 3D seguindo o cursor, com um reflexo de luz por cima */
+/* foto viva: flutua devagar, um aro de luz gira em volta e, no hover,
+   saem ondas de sonar e uma faixa de luz atravessa a foto */
 .heroi-foto {
-  --rx: 0deg;
-  --ry: 0deg;
-  --mx: 50%;
-  --my: 30%;
   position: relative;
   width: clamp(240px, 30vw, 400px);
   aspect-ratio: 1;
-  perspective: 900px;
   animation: foto-flutuar 7s ease-in-out infinite;
 }
 
@@ -569,9 +607,7 @@ img {
   overflow: hidden;
   border: 1px solid var(--linha-forte);
   background: var(--superficie-forte);
-  transform: rotateX(var(--rx)) rotateY(var(--ry));
   transition:
-    transform 0.5s var(--curva),
     box-shadow 0.5s ease,
     border-color 0.5s ease;
   box-shadow: 0 20px 50px rgb(0 0 0 / 0.45);
@@ -587,15 +623,43 @@ img {
     filter 0.5s ease;
 }
 
+/* faixa de luz na diagonal: fica escondida à esquerda e atravessa a foto no hover;
+   ao tirar o mouse ela volta para o lugar na hora, sem aparecer */
 .foto-reflexo {
   position: absolute;
   inset: 0;
-  border-radius: 50%;
-  background: radial-gradient(circle at var(--mx) var(--my), rgb(255 255 255 / 0.28), transparent 55%);
-  opacity: 0;
-  mix-blend-mode: soft-light;
-  transition: opacity 0.4s ease;
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgb(255 255 255 / 0.08) 42%,
+    rgb(255 255 255 / 0.32) 50%,
+    rgb(255 255 255 / 0.08) 58%,
+    transparent 65%
+  );
+  translate: -110% 0;
   pointer-events: none;
+}
+
+/* ondas de sonar: anéis que saem da borda da foto e somem */
+.foto-onda {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--brilho);
+  box-shadow: 0 0 18px rgb(var(--brilho-rgb) / 0.5);
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes onda-sonar {
+  from {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.45);
+  }
 }
 
 .heroi-foto:hover .foto-moldura {
@@ -611,7 +675,16 @@ img {
 }
 
 .heroi-foto:hover .foto-reflexo {
-  opacity: 1;
+  translate: 110% 0;
+  transition: translate 0.9s var(--curva);
+}
+
+.heroi-foto:hover .foto-onda {
+  animation: onda-sonar 2s ease-out infinite;
+}
+
+.heroi-foto:hover .foto-onda + .foto-onda {
+  animation-delay: 1s;
 }
 
 .heroi-foto:hover .foto-halo {
@@ -638,11 +711,43 @@ img {
   color: var(--texto-suave);
 }
 
-.heroi-nome-grande {
-  font-size: clamp(3.4rem, 8.5vw, 7rem);
+/* nome em maiúsculas, bem pesado e apertado, uma palavra por linha */
+/* "LUÍS RICARDO" tem cerca de 6,8 vezes o tamanho da fonte de largura:
+   14,6cqi faz o nome ocupar a coluna de texto inteira numa linha só */
+.heroi-linha {
+  display: flex;
+  gap: 0.25em;
+  font-size: clamp(2.4rem, 14.6cqi, 8rem);
+}
+
+.heroi-palavra {
   font-weight: 800;
-  line-height: 0.92;
-  letter-spacing: -0.045em;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* cada letra entra em sequência e, com o mouse perto, muda de peso */
+.letra {
+  display: inline-block;
+  font-weight: var(--peso, 800);
+  transition: font-weight 0.6s var(--curva);
+  animation: letra-entrar 1s var(--curva) both;
+  animation-delay: calc(0.15s + var(--i) * 45ms);
+}
+
+@keyframes letra-entrar {
+  from {
+    opacity: 0;
+    transform: translateY(0.35em) rotate(6deg);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
 }
 
 .heroi-frase {
@@ -1022,13 +1127,16 @@ img {
   touch-action: pan-y;
 }
 
-/* todos os projetos ocupam a mesma célula: a altura fica estável na troca */
+/* todos os projetos ocupam a mesma célula: a altura fica estável na troca.
+   em telas largas o card é horizontal (print à esquerda, informações à direita)
+   para caber inteiro na tela */
 .projeto {
   --desloc: 48px;
   grid-area: 1 / 1;
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 1.25rem 2.25rem;
   padding: 1.25rem;
   border: 1px solid var(--linha-forte);
   border-radius: var(--raio);
@@ -1122,11 +1230,10 @@ img {
 }
 
 .projeto-info {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr) minmax(0, 1fr);
-  gap: 2rem;
-  align-items: start;
-  padding: 0 0.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 0.5rem 0.75rem 0.5rem 0;
 }
 
 .projeto-info h3 {
@@ -1749,8 +1856,27 @@ img {
 }
 
 @media (max-width: 1024px) {
+  /* card volta a ficar empilhado: print em cima, informações embaixo.
+     a largura da vitrine depende da altura da tela: o print (proporção 1669 × 913)
+     fica com a altura da tela menos ~26rem (header, barra do navegador, informações
+     e folgas), e assim o card inteiro cabe. 152px = botões (2 × 52px) + espaços */
+  .vitrine {
+    max-width: max(560px, calc((100vh - 26rem) * 1669 / 913 + 2.5rem + 152px));
+    max-width: max(560px, calc((100svh - 26rem) * 1669 / 913 + 2.5rem + 152px));
+    margin-inline: auto;
+  }
+
+  .projeto {
+    display: flex;
+    flex-direction: column;
+  }
+
   .projeto-info {
+    display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: 2rem;
+    align-items: start;
+    padding: 0 0.5rem 0.5rem;
   }
 
   .projeto-lado {
@@ -1820,6 +1946,20 @@ img {
     margin-top: 1.5rem;
   }
 
+  /* a coluna de texto ocupa a largura toda (com a medição de tamanho ligada,
+     centralizar sem isso faria ela encolher) */
+  .heroi-texto {
+    justify-self: stretch;
+  }
+
+  /* no celular a coluna é estreita: o nome volta a ficar em duas linhas, maior */
+  .heroi-linha {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    font-size: clamp(3.2rem, 16vw, 5.5rem);
+  }
+
   .heroi-frase {
     margin-inline: auto;
   }
@@ -1835,9 +1975,16 @@ img {
 }
 
 @media (max-width: 600px) {
-  .container,
-  .cabecalho-barra {
+  .container {
     padding: 0 1rem;
+  }
+
+  .cabecalho {
+    --pilula: calc(100% - 1rem);
+  }
+
+  .cabecalho-barra {
+    padding: 0 calc(0.75rem + 0.25rem * var(--rolagem));
   }
 
   .heroi {

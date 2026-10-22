@@ -1,6 +1,33 @@
 document.documentElement.classList.remove("sem-js");
 
 const semHover = window.matchMedia("(hover: none)");
+const movimentoReduzido = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+// ===== ROLAGEM SUAVE (Lenis) =====
+// a página desliza com inércia em vez de pular; no toque o celular já faz isso sozinho
+let lenis = null;
+
+if (window.Lenis && !movimentoReduzido.matches) {
+  lenis = new Lenis({ lerp: 0.09, wheelMultiplier: 1 });
+
+  function rolar(tempo) {
+    lenis.raf(tempo);
+    requestAnimationFrame(rolar);
+  }
+  requestAnimationFrame(rolar);
+
+  // links internos (#secao) também deslizam, descontando a altura do cabeçalho
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const alvo = document.querySelector(link.hash);
+      if (!alvo) return;
+      e.preventDefault();
+      const alturaCabecalho = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--altura-cabecalho")) || 0;
+      lenis.scrollTo(alvo, { offset: -alturaCabecalho, duration: 1.2 });
+      history.replaceState(null, "", link.hash);
+    });
+  });
+}
 
 // ===== CABEÇALHO =====
 const linksNav = [...document.querySelectorAll(".nav-link")];
@@ -29,17 +56,31 @@ function atualizarLinkAtivo() {
   });
 }
 
+// ===== ROLAGEM DO HERO =====
+// --rolagem vai de 0 (topo) a 1 (hero quase fora da tela) e abre o header
+const heroi = document.querySelector(".heroi");
+
+function atualizarRolagemHeroi() {
+  const progresso = Math.min(1, Math.max(0, window.scrollY / (heroi.offsetHeight * 0.75)));
+  document.documentElement.style.setProperty("--rolagem", progresso.toFixed(4));
+}
+
+function aoRolar() {
+  atualizarLinkAtivo();
+  atualizarRolagemHeroi();
+}
+
 let quadroRolagem;
 window.addEventListener(
   "scroll",
   () => {
     cancelAnimationFrame(quadroRolagem);
-    quadroRolagem = requestAnimationFrame(atualizarLinkAtivo);
+    quadroRolagem = requestAnimationFrame(aoRolar);
   },
   { passive: true },
 );
-window.addEventListener("resize", atualizarLinkAtivo);
-atualizarLinkAtivo();
+window.addEventListener("resize", aoRolar);
+aoRolar();
 
 // em telas de toque não há hover: mostra o nome da seção por um instante
 linksNav.forEach((link) => {
@@ -53,28 +94,41 @@ linksNav.forEach((link) => {
   });
 });
 
-// ===== FOTO DO HERO: INCLINAÇÃO 3D COM O MOUSE =====
-const fotoHeroi = document.querySelector(".heroi-foto");
-const movimentoReduzido = window.matchMedia("(prefers-reduced-motion: reduce)");
+// ===== NOME DO HERO: LETRAS QUE AFINAM PERTO DO MOUSE =====
+const letras = [];
+
+document.querySelectorAll(".heroi-palavra").forEach((palavra) => {
+  const texto = palavra.textContent.trim();
+  palavra.textContent = "";
+  [...texto].forEach((caractere) => {
+    const letra = document.createElement("span");
+    letra.className = "letra";
+    letra.textContent = caractere;
+    letra.style.setProperty("--i", letras.length);
+    palavra.appendChild(letra);
+    letras.push(letra);
+  });
+});
 
 if (!semHover.matches && !movimentoReduzido.matches) {
-  let quadroFoto;
-  fotoHeroi.addEventListener("pointermove", (e) => {
-    cancelAnimationFrame(quadroFoto);
-    quadroFoto = requestAnimationFrame(() => {
-      const caixa = fotoHeroi.getBoundingClientRect();
-      const x = (e.clientX - caixa.left) / caixa.width;
-      const y = (e.clientY - caixa.top) / caixa.height;
-      fotoHeroi.style.setProperty("--ry", `${(x - 0.5) * 22}deg`);
-      fotoHeroi.style.setProperty("--rx", `${(0.5 - y) * 22}deg`);
-      fotoHeroi.style.setProperty("--mx", `${x * 100}%`);
-      fotoHeroi.style.setProperty("--my", `${y * 100}%`);
+  const ALCANCE = 260;
+  let quadroLetras;
+
+  heroi.addEventListener("pointermove", (e) => {
+    cancelAnimationFrame(quadroLetras);
+    quadroLetras = requestAnimationFrame(() => {
+      letras.forEach((letra) => {
+        const caixa = letra.getBoundingClientRect();
+        const distancia = Math.hypot(e.clientX - (caixa.left + caixa.width / 2), e.clientY - (caixa.top + caixa.height / 2));
+        const perto = Math.max(0, 1 - distancia / ALCANCE);
+        letra.style.setProperty("--peso", Math.round(800 - 680 * perto * perto));
+      });
     });
   });
 
-  fotoHeroi.addEventListener("pointerleave", () => {
-    cancelAnimationFrame(quadroFoto);
-    ["--rx", "--ry", "--mx", "--my"].forEach((prop) => fotoHeroi.style.removeProperty(prop));
+  heroi.addEventListener("pointerleave", () => {
+    cancelAnimationFrame(quadroLetras);
+    letras.forEach((letra) => letra.style.removeProperty("--peso"));
   });
 }
 
@@ -293,6 +347,127 @@ filtros.forEach((filtro) => {
     });
   });
 });
+
+// ===== ESTRELINHAS DO CURSOR =====
+// de vez em quando sai uma estrelinha discreta do cursor.
+// só com mouse (no toque não tem cursor) e sem a opção de reduzir movimento
+if (!semHover.matches && !movimentoReduzido.matches) {
+  const telaRastro = document.createElement("canvas");
+  telaRastro.className = "rastro-cursor";
+  telaRastro.setAttribute("aria-hidden", "true");
+  document.body.appendChild(telaRastro);
+  const pincelRastro = telaRastro.getContext("2d");
+
+  // cores da paleta do site ("78 168 232" vira "78,168,232" para o rgba)
+  const raiz = getComputedStyle(document.documentElement);
+  const rgbBrilho = raiz.getPropertyValue("--brilho-rgb").trim().split(/\s+/).join(",");
+  const rgbAcento = raiz.getPropertyValue("--acento-rgb").trim().split(/\s+/).join(",");
+  const CORES_ESTRELINHA = [rgbBrilho, rgbAcento];
+
+  const estrelinhas = [];
+  let ultimoPonto = null;
+  let distanciaAcumulada = 0;
+  let animando = false;
+  let tempoAnterior = 0;
+
+  const sortear = (min, max) => min + Math.random() * (max - min);
+
+  function medirRastro() {
+    const densidade = window.devicePixelRatio || 1;
+    telaRastro.width = Math.round(window.innerWidth * densidade);
+    telaRastro.height = Math.round(window.innerHeight * densidade);
+    pincelRastro.setTransform(densidade, 0, 0, densidade, 0, 0);
+  }
+  medirRastro();
+  window.addEventListener("resize", medirRastro);
+
+  function soltarEstrelinha(x, y) {
+    estrelinhas.push({
+      x: x + sortear(-6, 6),
+      y: y + sortear(-6, 6),
+      vx: sortear(-0.25, 0.25),
+      vy: sortear(-0.35, 0.05),
+      tamanho: sortear(2, 3.6),
+      giro: sortear(0, Math.PI),
+      velocidadeGiro: sortear(-0.04, 0.04),
+      vida: 0,
+      duracao: sortear(700, 1100),
+      cor: CORES_ESTRELINHA[Math.floor(Math.random() * CORES_ESTRELINHA.length)],
+    });
+  }
+
+  // estrela de quatro pontas com as laterais curvadas para dentro
+  function desenharEstrelinha(estrela, opacidade) {
+    const t = estrela.tamanho;
+    pincelRastro.save();
+    pincelRastro.translate(estrela.x, estrela.y);
+    pincelRastro.rotate(estrela.giro);
+    pincelRastro.beginPath();
+    pincelRastro.moveTo(0, -t);
+    pincelRastro.quadraticCurveTo(0, 0, t, 0);
+    pincelRastro.quadraticCurveTo(0, 0, 0, t);
+    pincelRastro.quadraticCurveTo(0, 0, -t, 0);
+    pincelRastro.quadraticCurveTo(0, 0, 0, -t);
+    pincelRastro.fillStyle = `rgba(${estrela.cor}, ${opacidade})`;
+    pincelRastro.shadowColor = `rgba(${rgbBrilho}, ${opacidade * 0.6})`;
+    pincelRastro.shadowBlur = 4;
+    pincelRastro.fill();
+    pincelRastro.restore();
+  }
+
+  function quadroRastro(agora) {
+    const dt = Math.min(48, agora - tempoAnterior || 16);
+    const passo = dt / 16;
+    tempoAnterior = agora;
+    pincelRastro.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+    // estrelinhas: flutuam, giram devagar e somem
+    for (let i = estrelinhas.length - 1; i >= 0; i--) {
+      const estrela = estrelinhas[i];
+      estrela.vida += dt;
+      if (estrela.vida >= estrela.duracao) {
+        estrelinhas.splice(i, 1);
+        continue;
+      }
+      estrela.vy += 0.004 * passo;
+      estrela.x += estrela.vx * passo;
+      estrela.y += estrela.vy * passo;
+      estrela.giro += estrela.velocidadeGiro * passo;
+      const progresso = estrela.vida / estrela.duracao;
+      // aparece rápido, some devagar, e nunca fica totalmente opaca
+      const opacidade = Math.min(1, progresso * 5) * (1 - progresso) * 0.55;
+      desenharEstrelinha(estrela, opacidade);
+    }
+
+    if (estrelinhas.length) {
+      requestAnimationFrame(quadroRastro);
+    } else {
+      animando = false;
+    }
+  }
+
+  window.addEventListener("pointermove", (e) => {
+    if (e.pointerType !== "mouse") return;
+
+    // uma estrelinha a cada ~90px andados, então quase não aparecem com o mouse devagar
+    if (ultimoPonto) {
+      distanciaAcumulada += Math.hypot(e.clientX - ultimoPonto.x, e.clientY - ultimoPonto.y);
+      if (distanciaAcumulada > 90) {
+        distanciaAcumulada = 0;
+        soltarEstrelinha(e.clientX, e.clientY);
+        if (!animando) {
+          animando = true;
+          tempoAnterior = performance.now();
+          requestAnimationFrame(quadroRastro);
+        }
+      }
+    }
+    ultimoPonto = { x: e.clientX, y: e.clientY };
+  });
+
+  // mouse saiu da janela: o próximo movimento começa do zero
+  document.documentElement.addEventListener("mouseleave", () => (ultimoPonto = null));
+}
 
 // ===== RODAPÉ: ANO =====
 document.getElementById("ano").textContent = new Date().getFullYear();

@@ -16,10 +16,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -79,10 +80,34 @@
       <!-- ===== HERO ===== -->
       <section class="heroi" id="inicio" aria-labelledby="heroi-nome">
         <div class="heroi-conteudo">
+          <!-- foto provisória: avatar do GitHub (github.com/luizeh) -->
+          <div class="heroi-foto">
+            <span class="foto-halo" aria-hidden="true"></span>
+            <span class="foto-aro" aria-hidden="true"></span>
+            <!-- ondas de sonar que saem da foto no hover -->
+            <span class="foto-onda" aria-hidden="true"></span>
+            <span class="foto-onda" aria-hidden="true"></span>
+            <div class="foto-moldura">
+              <img
+                src="https://github.com/luizeh.png?size=460"
+                alt="Foto de perfil de Luís Ricardo Soares"
+                width="460"
+                height="460"
+                fetchpriority="high"
+              />
+              <span class="foto-reflexo" aria-hidden="true"></span>
+            </div>
+          </div>
+
           <div class="heroi-texto">
             <h1 class="heroi-nome" id="heroi-nome">
               <span class="heroi-ola">Olá, sou o</span>
-              <span class="heroi-nome-grande">Luís Ricardo</span>
+              <span class="visualmente-oculto">Luís Ricardo</span>
+              <!-- cada letra vira um span no script; com o mouse perto, ela afina -->
+              <span class="heroi-linha" aria-hidden="true">
+                <span class="heroi-palavra">Luís</span>
+                <span class="heroi-palavra">Ricardo</span>
+              </span>
             </h1>
 
             <!-- no lugar de selos e botões, uma frase em que as palavras levam às seções -->
@@ -117,22 +142,6 @@
                 </a>
               </li>
             </ul>
-          </div>
-
-          <!-- foto provisória: avatar do GitHub (github.com/luizeh) -->
-          <div class="heroi-foto">
-            <span class="foto-halo" aria-hidden="true"></span>
-            <span class="foto-aro" aria-hidden="true"></span>
-            <div class="foto-moldura">
-              <img
-                src="https://github.com/luizeh.png?size=460"
-                alt="Foto de perfil de Luís Ricardo Soares"
-                width="460"
-                height="460"
-                fetchpriority="high"
-              />
-              <span class="foto-reflexo" aria-hidden="true"></span>
-            </div>
           </div>
         </div>
       </section>
