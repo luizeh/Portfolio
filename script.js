@@ -348,6 +348,44 @@ filtros.forEach((filtro) => {
   });
 });
 
+// ===== TRILHA DE CURSOS =====
+const trilhaEtapas = document.querySelector(".trilha-etapas");
+const etapas = [...trilhaEtapas.querySelectorAll(".etapa")];
+
+function escolherEtapa(indice, focar = false) {
+  etapas.forEach((etapa, i) => {
+    const ativa = i === indice;
+    etapa.setAttribute("aria-selected", String(ativa));
+    etapa.tabIndex = ativa ? 0 : -1;
+    etapa.classList.toggle("feita", i < indice);
+    document.getElementById(etapa.getAttribute("aria-controls")).hidden = !ativa;
+  });
+
+  // numera os tópicos do painel aberto para eles entrarem em sequência
+  const painel = document.getElementById(etapas[indice].getAttribute("aria-controls"));
+  painel.querySelectorAll(".curso-topicos li").forEach((topico, i) => topico.style.setProperty("--i", i));
+
+  trilhaEtapas.style.setProperty("--progresso", indice / (etapas.length - 1));
+  if (focar) etapas[indice].focus();
+}
+
+etapas.forEach((etapa, i) => etapa.addEventListener("click", () => escolherEtapa(i)));
+
+// setas (cima/baixo e esquerda/direita), Home e End navegam entre as etapas
+trilhaEtapas.addEventListener("keydown", (e) => {
+  const atual = etapas.findIndex((etapa) => etapa.getAttribute("aria-selected") === "true");
+  const teclas = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 };
+  let novo;
+  if (e.key in teclas) novo = (atual + teclas[e.key] + etapas.length) % etapas.length;
+  else if (e.key === "Home") novo = 0;
+  else if (e.key === "End") novo = etapas.length - 1;
+  else return;
+  e.preventDefault();
+  escolherEtapa(novo, true);
+});
+
+escolherEtapa(0);
+
 // ===== ESTRELINHAS DO CURSOR =====
 // de vez em quando sai uma estrelinha discreta do cursor.
 // só com mouse (no toque não tem cursor) e sem a opção de reduzir movimento

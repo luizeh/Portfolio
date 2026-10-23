@@ -60,6 +60,12 @@
               </a>
             </li>
             <li>
+              <a href="#cursos" class="nav-link">
+                <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                <span class="nav-dica">Cursos</span>
+              </a>
+            </li>
+            <li>
               <a href="#albuns" class="nav-link">
                 <i class="fas fa-compact-disc" aria-hidden="true"></i>
                 <span class="nav-dica">Álbuns favoritos</span>
@@ -299,42 +305,84 @@
             </button>
 
             <div class="vitrine-palco">
-              <article class="projeto ativo" aria-roledescription="slide" aria-label="Brasil Time">
+              <article class="projeto ativo" aria-roledescription="slide" aria-label="LZdev">
                 <div class="projeto-midia">
                   <div class="navegador">
                     <span class="navegador-pontos"><span></span><span></span><span></span></span>
-                    <span class="navegador-url">destypc.github.io/Brasil-Time</span>
+                    <span class="navegador-url">lzdev.com.br</span>
                   </div>
                   <img
-                    src="imgs/brasil-time.png"
-                    alt="Captura de tela do site Brasil Time"
-                    width="1669"
-                    height="1070"
+                    src="imgs/projetos/lzdev.webp"
+                    alt="Captura de tela do site da LZdev"
+                    width="1920"
+                    height="912"
                     loading="lazy"
                   />
                 </div>
                 <div class="projeto-info">
                   <div class="projeto-titulo">
-                    <h3>Brasil Time</h3>
-                    <p class="projeto-tipo">Projeto colaborativo</p>
+                    <h3>LZdev</h3>
+                    <p class="projeto-tipo">Minha empresa</p>
                   </div>
                   <p class="projeto-descricao">
-                    Primeiro projeto colaborativo de que participei, junto com
-                    <a class="linkprojeto" href="https://github.com/er1ck-xyz" target="_blank" rel="noopener noreferrer">Erick</a>,
-                    <a class="linkprojeto" href="https://github.com/destypc" target="_blank" rel="noopener noreferrer">Enzinx</a>
-                    e
-                    <a class="linkprojeto" href="https://github.com/lumivivos" target="_blank" rel="noopener noreferrer">Lucas (lumi)</a>.
-                    Mostra o horário com base no relógio do seu PC e inclui
-                    cronômetro, temporizador e uma sessão com os feriados do ano.
+                    Site da LZdev, empresa que fundei com o
+                    <a class="linkprojeto" href="https://github.com/destypc" target="_blank" rel="noopener noreferrer">EnzinxDev (destypc)</a>
+                    para criar landing pages, sites institucionais e sistemas web sob medida, com
+                    escopo fechado antes de começar e atendimento direto com quem escreve o código.
+                  </p>
+                  <div class="projeto-lado">
+                    <ul class="tags" aria-label="Tecnologias usadas">
+                      <li>React</li>
+                      <li>Tailwind CSS</li>
+                      <li>JavaScript</li>
+                    </ul>
+                    <a
+                      href="https://lzdev.com.br"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="botao botao-primario"
+                      >Acessar site <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i
+                    ></a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="projeto" aria-roledescription="slide" aria-label="GlobalTime">
+                <div class="projeto-midia">
+                  <div class="navegador">
+                    <span class="navegador-pontos"><span></span><span></span><span></span></span>
+                    <span class="navegador-url">global-time.lzdev.com.br</span>
+                  </div>
+                  <img
+                    src="imgs/projetos/global-time.webp"
+                    alt="Captura de tela do site GlobalTime"
+                    width="1918"
+                    height="919"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="projeto-info">
+                  <div class="projeto-titulo">
+                    <h3>GlobalTime</h3>
+                    <p class="projeto-tipo">Projeto colaborativo · LZdev</p>
+                  </div>
+                  <p class="projeto-descricao">
+                    Hora certa sincronizada com o servidor e ferramentas de tempo num site só, em 14 idiomas:
+                    relógio mundial, conversor de fusos, cronômetro, Pomodoro, calendário com feriados de
+                    mais de 35 países, clima e mais. Gratuito, sem rastreadores e funciona offline.
+                    Feito em dupla com
+                    <a class="linkprojeto" href="https://github.com/destypc" target="_blank" rel="noopener noreferrer">EnzinxDev(destypc)</a>.
                   </p>
                   <div class="projeto-lado">
                     <ul class="tags" aria-label="Tecnologias usadas">
                       <li>HTML</li>
                       <li>CSS</li>
                       <li>JavaScript</li>
+                      <li>Node.js</li>
+                      <li>Redis</li>
                     </ul>
                     <a
-                      href="https://destypc.github.io/Brasil-Time/"
+                      href="https://global-time.lzdev.com.br"
                       target="_blank"
                       rel="noopener noreferrer"
                       class="botao botao-primario"
@@ -351,7 +399,7 @@
                     <span class="navegador-url">github.com/luizeh/TioPretoBarbearia-Website</span>
                   </div>
                   <img
-                    src="imgs/barbeariawebsite.png"
+                    src="imgs/projetos/tio-preto-barbearia.webp"
                     alt="Captura de tela do site Tio Preto Barbearia"
                     width="1920"
                     height="914"
@@ -543,17 +591,216 @@
         </div>
       </section>
 
+      <!-- ===== CURSOS ===== -->
+      <section class="secao cursos" id="cursos" aria-labelledby="cursos-titulo">
+        <div class="container">
+          <div class="cabecalho-secao revelar">
+            <h2 class="titulo-secao" id="cursos-titulo">CURSOS</h2>
+            <p class="cursos-selo"><i class="fas fa-user-graduate" aria-hidden="true"></i> Cursos que fiz como aluno</p>
+          </div>
+
+          <p class="cursos-intro revelar">
+            Minha trilha de estudos: os cursos que fiz para aprender cada linguagem.
+            Os cursos são dos professores; o que está no meu GitHub são os exercícios
+            e projetos que fiz acompanhando as aulas.
+          </p>
+
+          <!-- cada etapa é uma linguagem; o painel mostra os cursos que fiz dela -->
+          <div class="trilha revelar">
+            <div class="trilha-etapas" role="tablist" aria-label="Linguagens estudadas" aria-orientation="vertical">
+              <button type="button" class="etapa" role="tab" id="etapa-html" aria-controls="painel-html" aria-selected="true" style="--cor: #e34f26">
+                <span class="etapa-num">01</span>
+                <span class="etapa-icone"><img src="https://cdn.simpleicons.org/html5/e34f26" alt="" width="28" height="28" loading="lazy" /></span>
+                <span class="etapa-nome">HTML &amp; CSS<small>1 curso</small></span>
+              </button>
+              <button type="button" class="etapa" role="tab" id="etapa-js" aria-controls="painel-js" aria-selected="false" tabindex="-1" style="--cor: #f7df1e">
+                <span class="etapa-num">02</span>
+                <span class="etapa-icone"><img src="https://cdn.simpleicons.org/javascript/f7df1e" alt="" width="28" height="28" loading="lazy" /></span>
+                <span class="etapa-nome">JavaScript<small>2 cursos</small></span>
+              </button>
+              <button type="button" class="etapa" role="tab" id="etapa-php" aria-controls="painel-php" aria-selected="false" tabindex="-1" style="--cor: #777bb4">
+                <span class="etapa-num">03</span>
+                <span class="etapa-icone"><img src="https://cdn.simpleicons.org/php/777bb4" alt="" width="28" height="28" loading="lazy" /></span>
+                <span class="etapa-nome">PHP &amp; MySQL<small>1 curso</small></span>
+              </button>
+              <button type="button" class="etapa" role="tab" id="etapa-react" aria-controls="painel-react" aria-selected="false" tabindex="-1" style="--cor: #61dafb">
+                <span class="etapa-num">04</span>
+                <span class="etapa-icone"><img src="https://cdn.simpleicons.org/react/61dafb" alt="" width="28" height="28" loading="lazy" /></span>
+                <span class="etapa-nome">React<small>1 curso</small></span>
+              </button>
+              <button type="button" class="etapa" role="tab" id="etapa-laravel" aria-controls="painel-laravel" aria-selected="false" tabindex="-1" style="--cor: #ff2d20">
+                <span class="etapa-num">05</span>
+                <span class="etapa-icone"><img src="https://cdn.simpleicons.org/laravel/ff2d20" alt="" width="28" height="28" loading="lazy" /></span>
+                <span class="etapa-nome">Laravel<small>1 curso</small></span>
+              </button>
+              <button type="button" class="etapa" role="tab" id="etapa-docker" aria-controls="painel-docker" aria-selected="false" tabindex="-1" style="--cor: #2496ed">
+                <span class="etapa-num">06</span>
+                <span class="etapa-icone"><img src="https://cdn.simpleicons.org/docker/2496ed" alt="" width="28" height="28" loading="lazy" /></span>
+                <span class="etapa-nome">Docker<small>1 curso</small></span>
+              </button>
+            </div>
+
+            <div class="trilha-paineis">
+              <div class="trilha-painel" role="tabpanel" id="painel-html" aria-labelledby="etapa-html" style="--cor: #e34f26">
+                <p class="painel-rotulo">Linguagem estudada · HTML5 e CSS3</p>
+                <article class="curso-feito">
+                  <div class="curso-feito-topo">
+                    <span class="curso-plataforma">Curso em Vídeo</span>
+                  </div>
+                  <h3 class="curso-titulo">HTML5 e CSS3</h3>
+                  <p class="curso-professor"><i class="fas fa-chalkboard-user" aria-hidden="true"></i> Aulas do professor <strong><a class="curso-professor-link" href="https://www.youtube.com/playlist?list=PLHz_AreHm4dkZ9-atkcmcBaMZdmLHft8n" target="_blank" rel="noopener noreferrer" title="Ver a playlist do curso no YouTube">Gustavo Guanabara <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></strong></p>
+                  <ul class="curso-topicos" aria-label="O que estudei">
+                    <li>Estrutura e semântica</li>
+                    <li>Seletores e estilos</li>
+                    <li>Box model</li>
+                    <li>Flexbox</li>
+                    <li>Layout responsivo</li>
+                  </ul>
+                  <a href="https://github.com/luizeh/html-css" target="_blank" rel="noopener noreferrer" class="curso-link"
+                    ><i class="fab fa-github" aria-hidden="true"></i> Ver meus exercícios <i class="fas fa-arrow-right" aria-hidden="true"></i
+                  ></a>
+                </article>
+              </div>
+
+              <div class="trilha-painel" role="tabpanel" id="painel-js" aria-labelledby="etapa-js" style="--cor: #f7df1e" hidden>
+                <p class="painel-rotulo">Linguagem estudada · JavaScript</p>
+                <article class="curso-feito">
+                  <div class="curso-feito-topo">
+                    <span class="curso-plataforma">Curso em Vídeo</span>
+                    <span class="curso-nivel">Parte 1</span>
+                  </div>
+                  <h3 class="curso-titulo">JavaScript Básico</h3>
+                  <p class="curso-professor"><i class="fas fa-chalkboard-user" aria-hidden="true"></i> Aulas do professor <strong><a class="curso-professor-link" href="https://www.youtube.com/playlist?list=PLHz_AreHm4dlsK3Nr9GVvXCbpQyHQl1o1" target="_blank" rel="noopener noreferrer" title="Ver a playlist do curso no YouTube">Gustavo Guanabara <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></strong></p>
+                  <ul class="curso-topicos" aria-label="O que estudei">
+                    <li>Variáveis e tipos</li>
+                    <li>Condições</li>
+                    <li>Repetições</li>
+                    <li>Funções</li>
+                    <li>DOM</li>
+                  </ul>
+                  <a href="https://github.com/luizeh/JavaScript/tree/main/CursoEmVideo" target="_blank" rel="noopener noreferrer" class="curso-link"
+                    ><i class="fab fa-github" aria-hidden="true"></i> Ver meus exercícios <i class="fas fa-arrow-right" aria-hidden="true"></i
+                  ></a>
+                </article>
+                <article class="curso-feito">
+                  <div class="curso-feito-topo">
+                    <span class="curso-plataforma">Udemy</span>
+                    <span class="curso-nivel">Parte 2</span>
+                  </div>
+                  <h3 class="curso-titulo">JavaScript Intermediário ao Avançado</h3>
+                  <p class="curso-professor"><i class="fas fa-chalkboard-user" aria-hidden="true"></i> Aulas do professor <strong><a class="curso-professor-link" href="https://www.udemy.com/course/fullstack-javascript-node-typescript-react-next-docker-git-api/" target="_blank" rel="noopener noreferrer" title="Ver o curso na Udemy">Jamilton Damasceno <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></strong></p>
+                  <ul class="curso-topicos" aria-label="O que estudei">
+                    <li>Arrays e loops</li>
+                    <li>Orientação a objetos</li>
+                    <li>Funções nativas</li>
+                    <li>DOM</li>
+                    <li>Eventos</li>
+                  </ul>
+                  <a href="https://github.com/luizeh/JavaScript/tree/main/Curso-Udemy" target="_blank" rel="noopener noreferrer" class="curso-link"
+                    ><i class="fab fa-github" aria-hidden="true"></i> Ver meus exercícios <i class="fas fa-arrow-right" aria-hidden="true"></i
+                  ></a>
+                </article>
+              </div>
+
+              <div class="trilha-painel" role="tabpanel" id="painel-php" aria-labelledby="etapa-php" style="--cor: #777bb4" hidden>
+                <p class="painel-rotulo">Linguagem estudada · PHP e MySQL</p>
+                <article class="curso-feito">
+                  <div class="curso-feito-topo">
+                    <span class="curso-plataforma">Udemy</span>
+                  </div>
+                  <h3 class="curso-titulo">PHP e MySQL — Do Zero ao Avançado</h3>
+                  <p class="curso-professor"><i class="fas fa-chalkboard-user" aria-hidden="true"></i> Aulas do professor <strong><a class="curso-professor-link" href="https://www.udemy.com/course/php-do-zero-a-maestria-com-projetos-incriveis/" target="_blank" rel="noopener noreferrer" title="Ver o curso na Udemy">Matheus Battisti <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></strong></p>
+                  <ul class="curso-topicos" aria-label="O que estudei">
+                    <li>Fundamentos do PHP</li>
+                    <li>Funções e arrays</li>
+                    <li>Orientação a objetos</li>
+                    <li>PHP e banco de dados</li>
+                    <li>Projeto de blog</li>
+                    <li>Design patterns</li>
+                  </ul>
+                  <a href="https://github.com/luizeh/curso_php" target="_blank" rel="noopener noreferrer" class="curso-link"
+                    ><i class="fab fa-github" aria-hidden="true"></i> Ver meus exercícios <i class="fas fa-arrow-right" aria-hidden="true"></i
+                  ></a>
+                </article>
+              </div>
+
+              <div class="trilha-painel" role="tabpanel" id="painel-react" aria-labelledby="etapa-react" style="--cor: #61dafb" hidden>
+                <p class="painel-rotulo">Biblioteca estudada · React</p>
+                <article class="curso-feito">
+                  <div class="curso-feito-topo">
+                    <span class="curso-plataforma">Udemy</span>
+                  </div>
+                  <h3 class="curso-titulo">React do Zero a Maestria</h3>
+                  <p class="curso-professor"><i class="fas fa-chalkboard-user" aria-hidden="true"></i> Aulas do professor <strong><a class="curso-professor-link" href="https://www.udemy.com/course/react-do-zero-a-maestria-c-hooks-router-api-projetos/" target="_blank" rel="noopener noreferrer" title="Ver o curso na Udemy">Matheus Battisti <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></strong></p>
+                  <ul class="curso-topicos" aria-label="O que estudei">
+                    <li>Componentes e props</li>
+                    <li>Formulários</li>
+                    <li>Requisições HTTP</li>
+                    <li>React Router</li>
+                    <li>Context API</li>
+                    <li>Hooks</li>
+                    <li>TypeScript</li>
+                  </ul>
+                  <a href="https://github.com/luizeh/curso_react" target="_blank" rel="noopener noreferrer" class="curso-link"
+                    ><i class="fab fa-github" aria-hidden="true"></i> Ver meus exercícios <i class="fas fa-arrow-right" aria-hidden="true"></i
+                  ></a>
+                </article>
+              </div>
+
+              <div class="trilha-painel" role="tabpanel" id="painel-laravel" aria-labelledby="etapa-laravel" style="--cor: #ff2d20" hidden>
+                <p class="painel-rotulo">Framework estudado · Laravel (PHP)</p>
+                <article class="curso-feito">
+                  <div class="curso-feito-topo">
+                    <span class="curso-plataforma">Udemy</span>
+                  </div>
+                  <h3 class="curso-titulo">Desenvolvimento Web Avançado com PHP, Laravel e Vue.js</h3>
+                  <p class="curso-professor"><i class="fas fa-chalkboard-user" aria-hidden="true"></i> Aulas do professor <strong><a class="curso-professor-link" href="https://www.udemy.com/course/curso-completo-do-desenvolvedor-laravel/" target="_blank" rel="noopener noreferrer" title="Ver o curso na Udemy">Jorge Sant'Ana <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></strong></p>
+                  <ul class="curso-topicos" aria-label="O que estudei">
+                    <li>Rotas</li>
+                    <li>Controllers</li>
+                    <li>Views com Blade</li>
+                    <li>Migrations</li>
+                    <li>Eloquent ORM</li>
+                    <li>Autenticação</li>
+                  </ul>
+                  <p class="curso-link curso-sem-repo"><i class="fas fa-folder-closed" aria-hidden="true"></i> Exercícios sem repositório público</p>
+                </article>
+              </div>
+
+              <div class="trilha-painel" role="tabpanel" id="painel-docker" aria-labelledby="etapa-docker" style="--cor: #2496ed" hidden>
+                <p class="painel-rotulo">Ferramenta estudada · Docker</p>
+                <article class="curso-feito">
+                  <div class="curso-feito-topo">
+                    <span class="curso-plataforma">Udemy</span>
+                  </div>
+                  <h3 class="curso-titulo">Docker para Desenvolvedores (com Docker Swarm e Kubernetes)</h3>
+                  <p class="curso-professor"><i class="fas fa-chalkboard-user" aria-hidden="true"></i> Aulas do professor <strong><a class="curso-professor-link" href="https://www.udemy.com/course/docker-para-desenvolvedores-com-docker-swarm-e-kubernetes/" target="_blank" rel="noopener noreferrer" title="Ver o curso na Udemy">Matheus Battisti <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></strong></p>
+                  <ul class="curso-topicos" aria-label="O que estudei">
+                    <li>Imagens e containers</li>
+                    <li>Volumes</li>
+                    <li>Networks</li>
+                    <li>YAML</li>
+                    <li>Docker Compose</li>
+                  </ul>
+                  <p class="curso-link curso-sem-repo"><i class="fas fa-folder-closed" aria-hidden="true"></i> Exercícios sem repositório público</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ===== ÁLBUNS ===== -->
       <section class="secao biblioteca" id="albuns" aria-labelledby="albuns-titulo">
         <div class="container container-largo">
           <h2 class="titulo-secao revelar" id="albuns-titulo">ALBUNS FAVORITOS (PERFECT SCORES)</h2>
 
           <div class="biblioteca-grade revelar">
-            <article class="album-destaque" style="--capa: url('imgs/hawaii.jpg')">
+            <article class="album-destaque" style="--capa: url('imgs/albuns/hawaii-part-ii.webp')">
               <span class="album-destaque-fundo" aria-hidden="true"></span>
               <img
                 class="album-destaque-capa"
-                src="imgs/hawaii.jpg"
+                src="imgs/albuns/hawaii-part-ii.webp"
                 alt="Capa do álbum Hawaii: Part II, de Miracle Musical"
                 width="643"
                 height="604"
@@ -567,13 +814,157 @@
               </div>
             </article>
 
-            <!-- 25 posições + o destaque = 26 perfect scores, 12 por página.
-                 Para cadastrar um álbum, troque um <li class="album album-vazio"> pelo modelo dos preenchidos. -->
+            <!-- 24 perfect scores + o destaque, 12 por página, na ordem abaixo.
+                 Para cadastrar um álbum, copie um <li class="album">. -->
             <div class="estante" role="region" aria-roledescription="carrossel" aria-label="Biblioteca de perfect scores" tabindex="0">
             <ol class="albuns-grade">
               <li class="album">
                 <div class="album-capa">
-                  <img src="imgs/thirty.jpg" alt="Capa do álbum THIRTY三十, de Oliver Buckland" width="640" height="640" loading="lazy" />
+                  <img src="imgs/albuns/donuts.webp" alt="Capa do álbum Donuts, de J Dilla" width="200" height="200" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="Donuts">Donuts</h3>
+                <p class="album-artista">J Dilla</p>
+              </li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/albuns/lift-your-skinny-fists.webp" alt="Capa do álbum Lift Your Skinny Fists Like Antennas to Heaven, de Godspeed You! Black Emperor" width="750" height="450" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="Lift Your Skinny Fists Like Antennas to Heaven">Lift Your Skinny Fists Like Antennas to Heaven</h3>
+                <p class="album-artista">Godspeed You! Black Emperor</p>
+              </li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/albuns/deathconsciousness.webp" alt="Capa do álbum Deathconsciousness, de Have a Nice Life" width="200" height="200" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="Deathconsciousness">Deathconsciousness</h3>
+                <p class="album-artista">Have a Nice Life</p>
+              </li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/albuns/scaring-the-hoes.webp" alt="Capa do álbum SCARING THE HOES, de JPEGMAFIA &amp; Danny Brown" width="200" height="200" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="SCARING THE HOES">SCARING THE HOES</h3>
+                <p class="album-artista">JPEGMAFIA &amp; Danny Brown</p>
+              </li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/albuns/to-pimp-a-butterfly.webp" alt="Capa do álbum To Pimp a Butterfly, de Kendrick Lamar" width="200" height="200" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="To Pimp a Butterfly">To Pimp a Butterfly</h3>
+                <p class="album-artista">Kendrick Lamar</p>
+              </li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/albuns/sobrevivendo-no-inferno.webp" alt="Capa do álbum Sobrevivendo no Inferno, de Racionais MC's" width="200" height="200" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="Sobrevivendo no Inferno">Sobrevivendo no Inferno</h3>
+                <p class="album-artista">Racionais MC's</p>
+              </li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/albuns/alfredo-1.webp" alt="Capa do álbum Alfredo, de Freddie Gibbs &amp; The Alchemist" width="200" height="200" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="Alfredo">Alfredo</h3>
+                <p class="album-artista">Freddie Gibbs &amp; The Alchemist</p>
+              </li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/albuns/alfredo-2.webp" alt="Capa do álbum Alfredo 2, de Freddie Gibbs &amp; The Alchemist" width="200" height="200" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="Alfredo 2">Alfredo 2</h3>
+                <p class="album-artista">Freddie Gibbs &amp; The Alchemist</p>
+              </li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/albuns/offline.webp" alt="Capa do álbum OFFLINE!, de JPEGMAFIA" width="200" height="200" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="OFFLINE!">OFFLINE!</h3>
+                <p class="album-artista">JPEGMAFIA</p>
+              </li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/albuns/late-registration.webp" alt="Capa do álbum Late Registration, de Kanye West" width="200" height="200" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="Late Registration">Late Registration</h3>
+                <p class="album-artista">Kanye West</p>
+              </li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/albuns/madvillainy.webp" alt="Capa do álbum Madvillainy, de MF DOOM &amp; Madlib" width="200" height="200" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="Madvillainy">Madvillainy</h3>
+                <p class="album-artista">MF DOOM &amp; Madlib</p>
+              </li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/albuns/cherry-bomb.webp" alt="Capa do álbum Cherry Bomb, de Tyler, The Creator" width="200" height="200" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="Cherry Bomb">Cherry Bomb</h3>
+                <p class="album-artista">Tyler, The Creator</p>
+              </li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/albuns/igor.webp" alt="Capa do álbum IGOR, de Tyler, The Creator" width="200" height="200" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="IGOR">IGOR</h3>
+                <p class="album-artista">Tyler, The Creator</p>
+              </li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/albuns/flower-boy.webp" alt="Capa do álbum Flower Boy, de Tyler, The Creator" width="200" height="200" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="Flower Boy">Flower Boy</h3>
+                <p class="album-artista">Tyler, The Creator</p>
+              </li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/albuns/chromakopia.webp" alt="Capa do álbum CHROMAKOPIA, de Tyler, The Creator" width="200" height="200" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="CHROMAKOPIA">CHROMAKOPIA</h3>
+                <p class="album-artista">Tyler, The Creator</p>
+              </li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/albuns/good-kid-maad-city.webp" alt="Capa do álbum good kid, m.A.A.d city, de Kendrick Lamar" width="200" height="200" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="good kid, m.A.A.d city">good kid, m.A.A.d city</h3>
+                <p class="album-artista">Kendrick Lamar</p>
+              </li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/albuns/solace.webp" alt="Capa do álbum Solace, de Earl Sweatshirt" width="200" height="200" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="Solace">Solace</h3>
+                <p class="album-artista">Earl Sweatshirt</p>
+              </li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/albuns/the-money-store.webp" alt="Capa do álbum The Money Store, de Death Grips" width="200" height="200" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="The Money Store">The Money Store</h3>
+                <p class="album-artista">Death Grips</p>
+              </li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/albuns/thirty.webp" alt="Capa do álbum THIRTY三十, de Oliver Buckland" width="640" height="640" loading="lazy" />
                   <span class="album-nota">100/100</span>
                 </div>
                 <h3 title="THIRTY三十">THIRTY三十</h3>
@@ -581,35 +972,44 @@
               </li>
               <li class="album">
                 <div class="album-capa">
-                  <img src="imgs/lysflath.jpg" alt="Capa do álbum Lift Your Skinny Fists Like Antennas to Heaven, de Godspeed You! Black Emperor" width="750" height="450" loading="lazy" />
+                  <img src="imgs/albuns/an-obsession-with-kit.webp" alt="Capa do álbum An Obsession with Kit, de Graham Kartna" width="200" height="200" loading="lazy" />
                   <span class="album-nota">100/100</span>
                 </div>
-                <h3 title="Lift Your Skinny Fists Like Antennas to Heaven">Lift Your Skinny Fists Like Antennas to Heaven</h3>
-                <p class="album-artista">Godspeed You! Black Emperor</p>
+                <h3 title="An Obsession with Kit">An Obsession with Kit</h3>
+                <p class="album-artista">Graham Kartna</p>
               </li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
-              <li class="album album-vazio" aria-label="Espaço reservado"><div class="album-capa"></div></li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/albuns/hikikomori-days.webp" alt="Capa do álbum Hikikomori Days, de Shoebill" width="200" height="200" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="Hikikomori Days">Hikikomori Days</h3>
+                <p class="album-artista">Shoebill</p>
+              </li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/albuns/uototogoka.webp" alt="Capa do álbum uototogoka, de d$ luqi" width="200" height="200" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="uototogoka">uototogoka</h3>
+                <p class="album-artista">d$ luqi</p>
+              </li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/albuns/currents.webp" alt="Capa do álbum Currents, de Tame Impala" width="200" height="200" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="Currents">Currents</h3>
+                <p class="album-artista">Tame Impala</p>
+              </li>
+              <li class="album">
+                <div class="album-capa">
+                  <img src="imgs/albuns/dark-side-of-the-moon.webp" alt="Capa do álbum The Dark Side of the Moon, de Pink Floyd" width="200" height="200" loading="lazy" />
+                  <span class="album-nota">100/100</span>
+                </div>
+                <h3 title="The Dark Side of the Moon">The Dark Side of the Moon</h3>
+                <p class="album-artista">Pink Floyd</p>
+              </li>
             </ol>
 
             <div class="estante-controles">
